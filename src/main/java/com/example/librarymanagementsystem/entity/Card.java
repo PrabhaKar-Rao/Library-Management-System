@@ -28,7 +28,7 @@ public class Card {
     @CreationTimestamp
     private Date issueDate;
 
-    private Date validDate;
+    private String validDate;
 
    // private Date validDate;
 

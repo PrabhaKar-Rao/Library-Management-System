@@ -4,10 +4,10 @@ import com.example.librarymanagementsystem.entity.Student;
 import com.example.librarymanagementsystem.service.StudentService;
 import com.example.librarymanagementsystem.service.implementation.StudentServiceImplementation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/student")
@@ -21,5 +21,15 @@ public class StudentController {
         return studentService.addStudent(student);
     }
 
+    @PostMapping("/removeStudent")
+    public String removeStudent(@RequestParam int studentId){
 
+        return studentService.removeStudent(studentId);
+    }
+
+    @PostMapping("/updateStudent")
+    public String updateStudent(@RequestParam int studentId, @RequestParam String name){
+
+        return studentService.updateStudent(studentId,name);
+    }
 }
