@@ -21,6 +21,7 @@ public class Book {
 
     private String bookTitle;
 
+    @Enumerated(EnumType.STRING)
     private Genre genre;
 
     private int noOfPages;
