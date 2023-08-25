@@ -27,5 +27,9 @@ public class Book {
 
     private double price;
 
+    @ManyToOne
+    @JoinColumn
+    Author author;
+
 
 }

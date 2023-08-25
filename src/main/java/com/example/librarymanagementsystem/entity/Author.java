@@ -6,6 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.*;
+
 @Entity
 @Table(name="author")
 @NoArgsConstructor
@@ -23,5 +26,8 @@ public class Author {
     private int age;
 
     private String email;
+
+    @OneToMany(mappedBy = "author",cascade = CascadeType.ALL)
+    List<Book> bookList=new ArrayList<>();
 
 }

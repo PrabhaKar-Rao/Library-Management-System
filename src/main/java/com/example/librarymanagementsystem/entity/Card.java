@@ -30,8 +30,6 @@ public class Card {
 
     private String validDate;
 
-   // private Date validDate;
-
     @OneToOne
     @JoinColumn
     Student student;

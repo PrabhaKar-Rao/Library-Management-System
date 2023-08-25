@@ -7,6 +7,7 @@ public enum Genre {
     COMEDY,
     DRAMA,
     FICTION,
-    ROMANTIC
+    ROMANTIC,
+    WAR
 
 }
