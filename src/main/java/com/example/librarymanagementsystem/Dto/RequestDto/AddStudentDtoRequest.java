@@ -1,23 +1,18 @@
-package com.example.librarymanagementsystem.entity;
+package com.example.librarymanagementsystem.Dto.RequestDto;
 
 import com.example.librarymanagementsystem.enums.Department;
-import jakarta.persistence.*;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
-@Table(name="student")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class Student {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int studentId;
+public class AddStudentDtoRequest {
 
     private String name;
 
@@ -27,7 +22,4 @@ public class Student {
     private Department department;
 
     private String mobileNo;
-
-    @OneToOne(mappedBy = "student",cascade=CascadeType.ALL)
-    Card card;
 }

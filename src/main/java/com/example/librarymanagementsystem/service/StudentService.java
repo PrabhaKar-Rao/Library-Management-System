@@ -1,16 +1,18 @@
 package com.example.librarymanagementsystem.service;
 
-import com.example.librarymanagementsystem.entity.Student;
-
-import java.util.List;
-import java.util.Optional;
+import com.example.librarymanagementsystem.Dto.RequestDto.AddStudentDtoRequest;
+import com.example.librarymanagementsystem.Dto.RequestDto.GetStudentByIdRequestDto;
+import com.example.librarymanagementsystem.Dto.RequestDto.UpdateStudentMobileNumberRequestDto;
+import com.example.librarymanagementsystem.Dto.ResponseDto.GetStudentByIdResponseDto;
+import com.example.librarymanagementsystem.Dto.ResponseDto.UpdateStudentMobResponseDto;
+import com.example.librarymanagementsystem.exceptions.StudentNotFoundException;
 
 public interface StudentService {
 
-    public String addStudent(Student student );
+  public String addStudent(AddStudentDtoRequest addPersonDto);
 
-    public String removeStudent(int studentId);
+  public UpdateStudentMobResponseDto updateStudentMobileNumber(UpdateStudentMobileNumberRequestDto
+                                                                      updatedStudentMobileNumber) throws StudentNotFoundException;
 
-    public String updateStudent(int studentId,String name);
-
+  public GetStudentByIdResponseDto getStudentById(GetStudentByIdRequestDto getStudentByIdRequestDto) throws StudentNotFoundException;
 }

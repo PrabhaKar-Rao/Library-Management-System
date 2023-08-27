@@ -1,13 +1,14 @@
 package com.example.librarymanagementsystem.controller;
 
-import com.example.librarymanagementsystem.entity.Student;
+import com.example.librarymanagementsystem.Dto.RequestDto.AddStudentDtoRequest;
+import com.example.librarymanagementsystem.Dto.RequestDto.GetStudentByIdRequestDto;
+import com.example.librarymanagementsystem.Dto.RequestDto.UpdateStudentMobileNumberRequestDto;
+import com.example.librarymanagementsystem.Dto.ResponseDto.GetStudentByIdResponseDto;
+import com.example.librarymanagementsystem.Dto.ResponseDto.UpdateStudentMobResponseDto;
+import com.example.librarymanagementsystem.exceptions.StudentNotFoundException;
 import com.example.librarymanagementsystem.service.StudentService;
-import com.example.librarymanagementsystem.service.implementation.StudentServiceImplementation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/student")
@@ -16,20 +17,21 @@ public class StudentController {
     @Autowired
     StudentService studentService;
     @PostMapping("/add")
-    public String addStudent(@RequestBody Student student){
+    public String addStudent(@RequestBody AddStudentDtoRequest addStudentDtoRequest){
 
-        return studentService.addStudent(student);
+       return  studentService.addStudent(addStudentDtoRequest);
+
     }
 
-    @PostMapping("/removeStudent")
-    public String removeStudent(@RequestParam int studentId){
-
-        return studentService.removeStudent(studentId);
+    @PutMapping("/update_student_mob")
+    public UpdateStudentMobResponseDto updateStudentMobileNumber(@RequestBody UpdateStudentMobileNumberRequestDto
+                                                                        updateStudentMobileNumberRequestDto) throws StudentNotFoundException {
+      return studentService.updateStudentMobileNumber(updateStudentMobileNumberRequestDto);
     }
 
-    @PostMapping("/updateStudent")
-    public String updateStudent(@RequestParam int studentId, @RequestParam String name){
+    @GetMapping("/get")
+   public GetStudentByIdResponseDto getStudentById(@RequestBody GetStudentByIdRequestDto getStudentByIdRequestDto) throws StudentNotFoundException {
 
-        return studentService.updateStudent(studentId,name);
-    }
+        return studentService.getStudentById(getStudentByIdRequestDto);
+   }
 }
